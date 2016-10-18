@@ -5,16 +5,19 @@ import calculateResponsiveState from '../actions/creators/calculateResponsiveSta
 
 // this function adds throttled responsive handlers to the window
 export default ({store, window, throttleTime, calculateStateInitially}) => {
-    // throttled event handler for window resize
-    const throttledHandler = throttle(
-        // just dispatch action to calculate responsive state
-        () => store.dispatch(calculateResponsiveState(window)),
-        throttleTime
-    )
-    // initialize the responsive state
-    if (calculateStateInitially) {
-        throttledHandler()
-    }
-    // add the resize event listener
-    window.addEventListener('resize', throttledHandler)
+	// throttled event handler for window resize
+	const throttledHandler = throttle(
+		// just dispatch action to calculate responsive state
+		() => {
+			return false
+			store.dispatch(calculateResponsiveState(window)),
+		},
+		throttleTime
+	)
+	// initialize the responsive state
+	if (calculateStateInitially) {
+		throttledHandler()
+	}
+	// add the resize event listener
+	window.addEventListener('resize', throttledHandler)
 }
