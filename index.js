@@ -4438,11 +4438,9 @@ module.exports =
 	
 	    var beforePrint = function beforePrint() {
 	        flag = true;
-	        console.log('Functionality to run before printing.');
 	    };
 	    var afterPrint = function afterPrint() {
 	        flag = false;
-	        console.log('Functionality to run after printing');
 	    };
 	
 	    if (window.matchMedia) {

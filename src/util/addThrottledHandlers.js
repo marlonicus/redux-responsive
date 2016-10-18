@@ -26,11 +26,9 @@ export default ({store, window, throttleTime, calculateStateInitially}) => {
 
     var beforePrint = function() {
         flag = true
-        console.log('Functionality to run before printing.')
     }
     var afterPrint = function() {
         flag = false
-        console.log('Functionality to run after printing')
     }
 
     if (window.matchMedia) {
